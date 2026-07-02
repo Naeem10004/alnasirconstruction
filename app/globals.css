@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  --charcoal: #1c2023;
+  --charcoal-2: #262b2f;
+  --concrete: #ece9e2;
+  --concrete-2: #dcd8cd;
+  --steel: #2f5573;
+  --steel-light: #4d7999;
+  --amber: #e2971f;
+  --amber-light: #f0b34e;
+  --rust: #8a4a30;
+  --offwhite: #faf8f4;
+  --ink: #21262a;
+  --line: #c8c2b4;
+}
+
+@theme inline {
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-2: var(--charcoal-2);
+  --color-concrete: var(--concrete);
+  --color-concrete-2: var(--concrete-2);
+  --color-steel: var(--steel);
+  --color-steel-light: var(--steel-light);
+  --color-amber: var(--amber);
+  --color-amber-light: var(--amber-light);
+  --color-rust: var(--rust);
+  --color-offwhite: var(--offwhite);
+  --color-ink: var(--ink);
+  --color-line: var(--line);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-data: var(--font-data);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--concrete);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-data {
+  font-family: var(--font-data);
+}
+
+/* blueprint grid background */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(250, 248, 244, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(250, 248, 244, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.blueprint-grid-light {
+  background-image:
+    linear-gradient(rgba(28, 32, 35, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 32, 35, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* dimension line corner brackets - the signature element */
+.corner-bracket {
+  position: relative;
+}
+
+.corner-bracket::before,
+.corner-bracket::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--amber);
+  pointer-events: none;
+}
+
+.corner-bracket::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-bracket::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: reveal-up 0.7s ease-out both;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+::selection {
+  background: var(--amber);
+  color: var(--charcoal);
+}
